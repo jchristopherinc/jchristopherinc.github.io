@@ -1,5 +1,5 @@
-title: ""
-author: ""
+title: "Chris' Blog"
+author: "Christopher"
 description: ""
 
 # Jekyll settings
@@ -24,7 +24,7 @@ navigation:                  # (optional) site navigation in the header
 
 icons:                       # (optional) fontawesome icons in the header
   envelope: "mailto:"
-  github: "https://github.com"
+  github: "https://github.com/jchristopherinc"
   rss: "/feed.xml"
 
 comments:                    # embed disqus or isso comments
