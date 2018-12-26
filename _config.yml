@@ -19,11 +19,10 @@ minimal_theme: false         # radically minimalistic theme
 
 navigation:                  # (optional) site navigation in the header
   - index.html
-  - archive.md
   - about.md
 
 icons:                       # (optional) fontawesome icons in the header
-  envelope: "mailto:"
+  twitter: "https://twitter.com/jchristopherinc"
   github: "https://github.com/jchristopherinc"
   rss: "/feed.xml"
 
