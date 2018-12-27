@@ -24,7 +24,7 @@ Lunch was done. I noticed one old maid coming to wash the dishes. She approached
 
 *“Paati, Neenga saapteengala?”* (Grandma, you had food??)
 
-***“Ila thambi.”*** (No son)
+**“Ila thambi.”** (No son)
 
 *“Apo neengalae saapdunga”* (Then you can eat it)
 
@@ -40,19 +40,19 @@ The beach was brilliant. The combination of fresh air, an approaching thundersto
 
 She stayed a little behind me. I got lost in thoughts. The clouds looked so scary. It looked as if thunderstorm might come anytime. I didn’t care. I was busy ruminating the good old times I had had at the same place with my family. Something bothered me and I got out of my dreaminess. It’s this old lady.
 
-***“Thambi, Puyal varum pola” ***(Son, it looks as if storm is coming)
+**“Thambi, Puyal varum pola”** (Son, it looks as if storm is coming)
 
 *“Aama paati”* (Yeah..) I said in a sigh…
 
 The waves broke in and out, latching on my legs as they receded. The old lady didn’t want to be in the sea water. She was on the sands, not far away from me. I could hear her. I had my eyes fixed at the horizon.
 
-***“Inga ithuku munnadi vanthurukeengala?” ***(Have you ever come here before?)
+**“Inga ithuku munnadi vanthurukeengala?”** (Have you ever come here before?)
 
 I didn’t see her. I vaguely replied to her,
 
 *“oru 10 varushathuku munnadi”* (Yeah, before 10 years)
 
-***“Unga peru ena thambi?”*** (Son, Whats your name?)
+**“Unga peru ena thambi?”** (Son, Whats your name?)
 
 Now I got irritated. She’s slowly getting to know me and probably will ask me some money. I didn’t turn back at her and replied even harshly,
 
@@ -60,7 +60,7 @@ Now I got irritated. She’s slowly getting to know me and probably will ask me 
 
 I heard her giggle. I was wondering why this lady is laughing to hear my name. Is it funny? Did she understand my name at first? She let out a huge sigh.
 
-***“En peru Gnanasoundhari” ***(My name is *Gnanasoundhari.*)
+**“En peru Gnanasoundhari”** (My name is *Gnanasoundhari.*)
 
 *I heard this… in a voice very familiar to me.*
 
@@ -70,7 +70,7 @@ It took me a couple of seconds for my brain to process the voice I just heard.
 
 I turned back.
 
-***There was no one else at the beach. There was a storm coming behind me.***
+**There was no one else at the beach. There was a storm coming behind me.**
 
 P.S: “Thambi” means brother in Tamil. In some dialects of Tamil, people use it to respectfully refer to a person much younger to them. For better contextual understanding, I translated it as “Son”.
 
