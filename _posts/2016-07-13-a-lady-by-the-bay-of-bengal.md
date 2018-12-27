@@ -72,5 +72,4 @@ I turned back.
 
 P.S: “Thambi” means brother in Tamil. In some dialects of Tamil, people use it to respectfully refer to a person much younger to them. For better contextual understanding, I translated it as “Son”.
 
-
 Originally published in Medium.
