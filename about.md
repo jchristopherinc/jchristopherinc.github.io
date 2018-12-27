@@ -11,4 +11,8 @@ I'm write software programs for a living, predominantly in Java/JavaScript. I so
 
 I started this blog to get back to writing after a long time. Sometimes you find my blogs interesting and sometimes boring.
 
+I write about fiction, non-fiction, technical and whatever that interests me.
+
 > Mandatory disclaimer: The content of the blog and views are solely my own and in no way represent that of my any previous/current/future employers.
+
+Thanks
