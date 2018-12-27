@@ -1,7 +1,5 @@
 ![alt sea_shore](../assets/images/sea_shore.jpeg)
 
-# A Lady by the Bay of Bengal
-
 ### @ Lakshmi Resorts, ECR
 
 It’s been a good 10 years since I had a very good time with my family. The last time I came here was in 2005 along with my grandmother, aunts, uncles and cousins. We went to VGP Universal Kingdom, a couple of beaches and we finally spent the weekend at this resort in ECR. That was the last time we all saw our grandmother hale and healthy. She returned to our native after that trip, fell sick and eventually passed away.
