@@ -27,7 +27,7 @@ icons:                       # (optional) fontawesome icons in the header
   rss: "/feed.xml"
 
 comments:                    # embed disqus or isso comments
-#  disqus: ""
+ disqus: "christopher-in"
 #  isso: ""
 
 plugins: 
