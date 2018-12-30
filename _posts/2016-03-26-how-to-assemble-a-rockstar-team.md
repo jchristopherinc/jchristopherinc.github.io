@@ -81,8 +81,9 @@ Sometimes, the team as a whole may get into trouble and would need your help. Be
 A proper mentor would help you and your team 10x than just you. Having a good mentor is a moral boost for you as well as your team. The more the positive energy around you, the more good for you.
 
 Finally,
-> **A wise man gets more from his enemies, than a fool from his friends. 
-- Baltasar Gracián**, **The Art of Worldly Wisdom, retold to me by Niki Lauda in Rush (2013)**
+> A wise man gets more from his enemies, than a fool from his friends. 
+Baltasar Gracián, 
+**The Art of Worldly Wisdom, retold to me by Niki Lauda in Rush (2013)**
 
 There’s no worst person in this world to get feedback from. You can learn things even from the person whom you hate the most. It’s your willingness to accept things and improve upon it. Always be open to ideas, suggestions and feedback. Without a constructive approach to criticism, you cannot learn.
 
