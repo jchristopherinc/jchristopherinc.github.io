@@ -82,8 +82,8 @@ A proper mentor would help you and your team 10x than just you. Having a good me
 
 Finally,
 > A wise man gets more from his enemies, than a fool from his friends. 
-Baltasar Gracián, 
-**The Art of Worldly Wisdom, retold to me by Niki Lauda in Rush (2013)**
+> Baltasar Gracián, 
+> **The Art of Worldly Wisdom, retold to me by Niki Lauda in Rush (2013)**
 
 There’s no worst person in this world to get feedback from. You can learn things even from the person whom you hate the most. It’s your willingness to accept things and improve upon it. Always be open to ideas, suggestions and feedback. Without a constructive approach to criticism, you cannot learn.
 
