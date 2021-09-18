@@ -6,7 +6,7 @@ permalink: /about/
 
 Hello 👋
 
-I'm Christopher. I'm a self taught programmer, currently working as a Lead Software Engineer in a SaaS firm in [Chennai, India](https://en.wikipedia.org/wiki/Chennai). I was born and brought up in [Sivakasi, India](https://en.wikipedia.org/wiki/Sivakasi). 
+I'm Christopher. I'm a programmer, currently working as a Lead Software Engineer in a SaaS firm in [Chennai, India](https://en.wikipedia.org/wiki/Chennai). I was born and brought up in [Sivakasi, India](https://en.wikipedia.org/wiki/Sivakasi). 
 I write software programs for a living, predominantly in Java/JavaScript. Sometimes I write programs in [Elixir](https://en.wikipedia.org/wiki/Elixir_(programming_language)) for fun. 
 
 I write about fiction, non-fiction, technical and whatever that interests me.
