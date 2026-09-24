@@ -1,26 +1,16 @@
 ---
 layout: default
 ---
-<article>
-  <header>
-    {%- assign date_format = site.date_format | default: "%B %d, %Y" -%}
-    <h1><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h1>
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
-  </header>
-{{ content }}
-  {% if site.comments.isso %}
-  <hr><div id="isso-thread"></div>
-  {% endif %}
-  {% if site.comments.disqus %}
-  <hr><div id="disqus_thread"></div>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  {% endif %}
+<article class="content-page post-page">
+  <a class="back-link top-back" href="{{ '/archive/' | relative_url }}"><span aria-hidden="true">←</span> All writing</a>
+  <header class="post-heading"><p class="eyebrow">FROM THE NOTEBOOK</p><h1>{{ page.title | escape }}<span class="heading-period">.</span></h1><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.date_format }}</time></header>
+  <div class="prose">{{ content }}</div>
+  {% if site.comments.isso %}<hr><div id="isso-thread"></div>{% endif %}
+  {% if site.comments.disqus %}<hr><div id="disqus_thread"></div><a href="https://disqus.com" class="dsq-brlink">comments powered by Disqus</a>{% endif %}
 </article>
-{% if site.post_footer %}
-{% if page.previous.url or page.next.url %}
-<footer>
-  {% if page.next.url %}<a class="gray" href="{{ page.next.url | relative_url }}">« {{ page.next.title }}</a>{% else %}<span></span>{% endif %}
-  {% if page.previous.url %}<a class="gray" href="{{ page.previous.url | relative_url }}">{{ page.previous.title }} »</a>{% else %}<span></span>{% endif %}
-</footer>
-{% endif %}
+{% if site.post_footer and page.previous.url or site.post_footer and page.next.url %}
+<nav class="post-pagination" aria-label="Adjacent posts">
+  {% if page.next.url %}<a href="{{ page.next.url | relative_url }}"><small>← NEWER</small><span>{{ page.next.title | escape }}</span></a>{% else %}<span></span>{% endif %}
+  {% if page.previous.url %}<a href="{{ page.previous.url | relative_url }}"><small>OLDER →</small><span>{{ page.previous.title | escape }}</span></a>{% endif %}
+</nav>
 {% endif %}

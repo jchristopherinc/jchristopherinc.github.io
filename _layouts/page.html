@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
-<article>
-  <header><h1><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h1></header>
-{{ content }}
+<article class="content-page">
+  <p class="eyebrow">A LITTLE INTRODUCTION / CHRISTOPHER</p>
+  <h1>{{ page.title | escape }}<span class="heading-period">.</span></h1>
+  <div class="prose">{{ content }}</div>
+  <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> Back home</a>
 </article>

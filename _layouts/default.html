@@ -1,31 +1,38 @@
-<!DOCTYPE html>
-<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-<meta charset="{{ site.encoding }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-<meta name="author" content="{{ page.author | default: site.author | escape}}">
-<meta name="generator" content="Jekyll v{{ jekyll.version }}">
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-<link rel="stylesheet" href="{{ "/assets/css/index.css" | relative_url }}">
-<link rel="stylesheet" href="{{ "/assets/css/classes.css" | relative_url }}">
-{% if site.minimal_theme %}
-<link rel="stylesheet" href="{{ "/assets/css/minimal.css" | relative_url }}">
-{% else %}
-<link rel="stylesheet" href="{{ "/assets/css/default.css" | relative_url }}">
-{% endif %}
-{% if site.plugins contains "jekyll-feed" %}<link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}" title="{{ site.title }}" />{% endif %}
-{% if page.mathjax or site.mathjax %}
-<link rel="stylesheet" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
-<script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script>
-<script defer src="{{ "/assets/katex/contrib/mathtex-script-type.min.js" | relative_url }}"></script>
-{% endif %}
-{% if site.comments.disqus %}<script src="//{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
-{% if site.comments.isso %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>{% endif %}
-
-<header>
-  <h1><a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h1>
-  {% if site.navigation %}<nav>{% for path in site.navigation %}{% assign node = site.pages | where: "name", path | first %}<a href="{{ node.url | relative_url }}">{{ node.title }}</a>{% endfor %}</nav>{% endif %}
-  {% if site.icons %}<nav>{% for link in site.icons %}<a class="icon" href="{{ link[1] }}"><svg><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ link[0] }}"></use></svg></a>{% endfor %}</nav>{% endif %}
-</header>
-
-{{ content }}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="{{ site.encoding | default: 'utf-8' }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>{% if page.title and page.title != 'Home' %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="author" content="{{ page.author | default: site.author | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+  {% if site.plugins contains 'jekyll-feed' %}<link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}" title="{{ site.title | escape }}">{% endif %}
+  {% if page.mathjax or site.mathjax %}
+  <link rel="stylesheet" href="{{ '/assets/katex/katex.min.css' | relative_url }}">
+  <script defer src="{{ '/assets/katex/katex.min.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/katex/contrib/mathtex-script-type.min.js' | relative_url }}"></script>
+  {% endif %}
+  {% if site.comments.disqus %}<script src="https://{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
+  {% if site.comments.isso %}<script data-isso="https://{{ site.comments.isso }}" src="https://{{ site.comments.isso }}/js/embed.min.js" async></script>{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Christopher, home"><span class="brand-mark" aria-hidden="true">C<span>.</span></span><span class="brand-name">Christopher<span class="brand-sub">/ maker & writer</span></span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>Whoami</a>
+      <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Writing</a>
+      <a class="nav-contact" href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="wrap">{{ content }}</main>
+  <footer class="site-footer wrap">
+    <div><span class="footer-mark">C<span>.</span></span><p>Thoughts, experiences, words.</p></div>
+    <nav aria-label="Elsewhere"><a href="{{ '/about/' | relative_url }}">Whoami</a><a href="{{ '/archive/' | relative_url }}">Writing</a><a href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://twitter.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Twitter ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></nav>
+    <small>Made with curiosity · Christopher</small>
+  </footer>
+</body>
+</html>
