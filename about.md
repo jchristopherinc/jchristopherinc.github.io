@@ -12,9 +12,15 @@ Before ZEPIC, I was a Staff Engineer @ [Freshworks](https://www.freshworks.com/)
 
 I grew up in [Sivakasi, India](https://en.wikipedia.org/wiki/Sivakasi), and studied M.Sc. Software Engineering at [Bannari Amman Institute of Technology](https://www.bitsathy.ac.in/) in Sathyamangalam.
 
+I also write about fiction, non-fiction, technical topics, and whatever else catches my attention.
+
 ## Interests
 
-I'm interested in history, human evolution, psychology, and how people interact with technology. I also write about fiction, non-fiction, technical topics, and whatever else catches my attention.
+- 🏛️ History
+- 🧬 Human evolution
+- 🧠 Psychology
+- 🤝 How people interact with technology
+- 💰 Personal finance
 
 > Mandatory disclaimer: The content of this blog and the views expressed here are solely my own and do not represent those of any past, present, or future employer.
 
