@@ -1,9 +1,11 @@
 ---
 layout: default
 ---
-<article class="content-page">
-  <p class="eyebrow">A LITTLE INTRODUCTION / CHRISTOPHER</p>
-  <h1>{{ page.title | escape }}<span class="heading-period">.</span></h1>
+<article class="content-page about-page">
+  <header class="interior-heading">
+    <div class="interior-heading__copy"><p class="eyebrow">A LITTLE INTRODUCTION / CHRISTOPHER</p><h1>{{ page.title | escape }}<span class="heading-period">.</span></h1></div>
+    <div class="interior-heading__art" aria-hidden="true"><div class="art-frame">{% include atlas-detail.svg %}</div></div>
+  </header>
   <div class="prose">{{ content }}</div>
   <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> Back home</a>
 </article>

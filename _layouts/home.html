@@ -11,18 +11,7 @@ layout: default
   </div>
   <div class="hero-art" aria-hidden="true">
     <div class="art-frame">
-      <svg class="atlas-detail" viewBox="0 0 480 520" focusable="false" aria-hidden="true">
-        <circle class="atlas-detail__ring" cx="244" cy="242" r="176"/>
-        <circle class="atlas-detail__ring atlas-detail__ring--inner" cx="244" cy="242" r="111"/>
-        <path class="atlas-detail__axis" d="M244 32v420M32 242h424"/>
-        <path class="atlas-detail__route atlas-detail__route--one" d="M46 353C130 317 129 122 244 159S366 308 436 115"/>
-        <path class="atlas-detail__route atlas-detail__route--two" d="M73 89C183 122 177 388 282 349S331 195 418 414"/>
-        <path class="atlas-detail__route atlas-detail__route--three" d="M62 420C170 402 199 290 244 242S332 157 414 91"/>
-        <circle class="atlas-detail__node" cx="143" cy="242" r="5"/><circle class="atlas-detail__node" cx="244" cy="159" r="5"/><circle class="atlas-detail__node" cx="282" cy="349" r="5"/><circle class="atlas-detail__node" cx="351" cy="230" r="5"/>
-        <circle class="atlas-detail__center" cx="244" cy="242" r="13"/><circle class="atlas-detail__center-core" cx="244" cy="242" r="4"/>
-        <path class="atlas-detail__tick" d="M244 46v13M244 426v13M48 242h13M427 242h13"/>
-        <text class="atlas-detail__label" x="76" y="177">OBSERVE</text><text class="atlas-detail__label" x="345" y="338">CONNECT</text><text class="atlas-detail__label" x="275" y="91">MAKE</text>
-      </svg>
+      {% include atlas-detail.svg %}
       <span class="art-caption">A MAP OF WHAT MATTERS</span><span class="art-index">01 — ∞</span>
     </div>
     <span class="art-footnote">AN ONGOING EXPLORATION</span>
@@ -36,5 +25,5 @@ layout: default
 </section>
 <section class="closing" aria-labelledby="closing-title"><p class="eyebrow">STILL CURIOUS?</p><h2 id="closing-title">The best conversations<br>start with <em>hello.</em></h2><div class="closing-links"><a href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Find me on GitHub <span aria-hidden="true">↗</span></a><a href="https://twitter.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Say hi on Twitter <span aria-hidden="true">↗</span></a></div></section>
 {% else %}
-<section class="archive-page"><p class="eyebrow">THE NOTEBOOK / ALL ENTRIES</p><h1>All the <em>writing.</em></h1><p class="archive-intro">Fiction, non-fiction, technical things, and whatever else caught my attention.</p><div class="post-list">{% for post in site.posts %}<a class="post-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d %b %Y' }}</time><span class="post-title">{{ post.title | escape }}</span><span class="row-arrow" aria-hidden="true">↗</span></a>{% endfor %}</div></section>
+<section class="archive-page"><header class="interior-heading"><div class="interior-heading__copy"><p class="eyebrow">THE NOTEBOOK / ALL ENTRIES</p><h1>All the <em>writing.</em></h1><p class="archive-intro">Fiction, non-fiction, technical things, and whatever else caught my attention.</p></div><div class="interior-heading__art" aria-hidden="true"><div class="art-frame">{% include atlas-detail.svg %}</div></div></header><div class="post-list">{% for post in site.posts %}<a class="post-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d %b %Y' }}</time><span class="post-title">{{ post.title | escape }}</span><span class="row-arrow" aria-hidden="true">↗</span></a>{% endfor %}</div></section>
 {% endif %}

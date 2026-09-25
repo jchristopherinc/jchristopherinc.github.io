@@ -1,0 +1,12 @@
+<svg class="atlas-detail" viewBox="0 0 480 520" focusable="false" aria-hidden="true">
+  <circle class="atlas-detail__ring" cx="244" cy="242" r="176"/>
+  <circle class="atlas-detail__ring atlas-detail__ring--inner" cx="244" cy="242" r="111"/>
+  <path class="atlas-detail__axis" d="M244 32v420M32 242h424"/>
+  <path class="atlas-detail__route atlas-detail__route--one" d="M46 353C130 317 129 122 244 159S366 308 436 115"/>
+  <path class="atlas-detail__route atlas-detail__route--two" d="M73 89C183 122 177 388 282 349S331 195 418 414"/>
+  <path class="atlas-detail__route atlas-detail__route--three" d="M62 420C170 402 199 290 244 242S332 157 414 91"/>
+  <circle class="atlas-detail__node" cx="143" cy="242" r="5"/><circle class="atlas-detail__node" cx="244" cy="159" r="5"/><circle class="atlas-detail__node" cx="282" cy="349" r="5"/><circle class="atlas-detail__node" cx="351" cy="230" r="5"/>
+  <circle class="atlas-detail__center" cx="244" cy="242" r="13"/><circle class="atlas-detail__center-core" cx="244" cy="242" r="4"/>
+  <path class="atlas-detail__tick" d="M244 46v13M244 426v13M48 242h13M427 242h13"/>
+  <text class="atlas-detail__label" x="76" y="177">OBSERVE</text><text class="atlas-detail__label" x="345" y="338">CONNECT</text><text class="atlas-detail__label" x="275" y="91">MAKE</text>
+</svg>

@@ -15,9 +15,16 @@ body{position:relative;isolation:isolate;transition:background-color .7s ease,co
 @keyframes atlas-drift{from{transform:translate3d(-1.5%,1%,0) scale(1.02)}to{transform:translate3d(1.5%,-1%,0) scale(1.04)}}
 @keyframes atlas-breathe{from{transform:translate3d(-4%,2%,0);opacity:.55}to{transform:translate3d(3%,-2%,0);opacity:1}}
 @keyframes atlas-glimmer{from{opacity:.2}to{opacity:.82}}
-/* Prose gets just the faint underlying paths; no drifting points or glow. */
-body:has(.content-page) .atlas-atmosphere__grid,body:has(.content-page) .atlas-atmosphere__glow,body:has(.content-page) .atlas-atmosphere__point{display:none}
-body:has(.content-page) .atlas-atmosphere__paths{opacity:.13;animation:none}
+/* Interior headings carry the map; paths fade before the reading column. */
+body:has(.content-page,.archive-page) .atlas-atmosphere__grid,body:has(.content-page,.archive-page) .atlas-atmosphere__glow,body:has(.content-page,.archive-page) .atlas-atmosphere__point{display:none}
+body:has(.content-page,.archive-page) .atlas-atmosphere__paths{opacity:.58;animation:none;mask-image:linear-gradient(to bottom,#000 0%,#000 18%,transparent 72%)}
+.interior-heading{display:grid;grid-template-columns:minmax(0,1fr) clamp(130px,23vw,180px);align-items:center;gap:28px;min-height:205px;margin:0 0 38px;padding:16px 0 32px;border-bottom:1px solid var(--line)}
+.interior-heading__copy{min-width:0}.interior-heading h1{margin:16px 0 0;font-size:clamp(46px,5vw,74px);overflow-wrap:anywhere}
+.interior-heading__art{width:100%;max-width:180px;justify-self:end;pointer-events:none}.interior-heading__art .art-frame{aspect-ratio:1/1.08}
+.archive-page .interior-heading{margin-bottom:38px}.archive-page .interior-heading h1{margin:16px 0}.archive-page .archive-intro{margin:0;max-width:520px}
+.post-heading.interior-heading time{margin:20px 0 0}.post-heading.interior-heading{margin-bottom:45px}
+@media(max-width:670px){.interior-heading{grid-template-columns:minmax(0,1fr) 108px;gap:14px;min-height:152px;padding:12px 0 27px;margin-bottom:30px}.interior-heading h1{font-size:clamp(39px,10vw,58px);line-height:1.1}.interior-heading__art{max-width:108px}.post-heading.interior-heading{margin-bottom:32px}.post-heading.interior-heading time{margin:14px 0 0}}
+@media(max-width:380px){.interior-heading{grid-template-columns:minmax(0,1fr) 88px;gap:10px}.interior-heading h1{font-size:39px}.interior-heading__art{max-width:88px}}
 .scene-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:8px;flex:none;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .2s,background-color .7s,color .7s}
 .scene-toggle:hover{border-color:var(--accent);background:var(--accent-light)}.scene-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .scene-toggle__mark{position:relative;display:block;width:23px;height:23px;border:1px solid var(--atlas-route);border-radius:50%;transform:rotate(-25deg)}.scene-toggle__mark:before{content:"";position:absolute;inset:4px;border:1px solid var(--atlas-route);border-radius:50%;opacity:.65}.scene-toggle__mark span{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--atlas-dot)}.scene-toggle__mark span:nth-child(1){left:-2px;top:7px}.scene-toggle__mark span:nth-child(2){right:0;top:-1px}.scene-toggle__mark span:nth-child(3){right:-2px;bottom:4px}
