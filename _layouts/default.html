@@ -1,30 +1,37 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-scene="night">
 <head>
   <meta charset="{{ site.encoding | default: 'utf-8' }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
   <script>
     (() => {
-      const key = 'christopher-theme';
+      const key = 'christopher-scene';
       const root = document.documentElement;
       let saved;
       try { saved = localStorage.getItem(key); } catch (_) { /* Storage may be unavailable. */ }
-      const theme = () => saved === 'light' ? 'light' : 'dark';
+      if (!['night', 'focus', 'wander'].includes(saved)) {
+        let previous;
+        try { previous = localStorage.getItem('christopher-theme'); } catch (_) { /* Storage may be unavailable. */ }
+        saved = previous === 'light' ? 'focus' : 'night';
+      }
+      const order = ['night', 'focus', 'wander'];
       const apply = () => {
-        const dark = theme() === 'dark';
-        root.dataset.theme = dark ? 'dark' : 'light';
-        const toggle = document.getElementById('theme-toggle');
+        const scene = order.includes(saved) ? saved : 'night';
+        root.dataset.scene = scene;
+        root.dataset.theme = scene === 'focus' ? 'light' : 'dark';
+        const toggle = document.getElementById('scene-toggle');
         if (toggle) {
-          toggle.setAttribute('aria-pressed', String(dark));
-          toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+          const next = order[(order.indexOf(scene) + 1) % order.length];
+          toggle.setAttribute('aria-label', `Scene: ${scene}. Switch to ${next}.`);
+          toggle.setAttribute('title', `Scene: ${scene}. Switch to ${next}.`);
         }
       };
       apply();
       document.addEventListener('DOMContentLoaded', () => {
         apply();
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-          saved = theme() === 'dark' ? 'light' : 'dark';
+        document.getElementById('scene-toggle').addEventListener('click', () => {
+          saved = order[(order.indexOf(saved) + 1) % order.length];
           try { localStorage.setItem(key, saved); } catch (_) { /* Still works for this page. */ }
           apply();
         });
@@ -39,6 +46,7 @@
   <meta name="author" content="{{ page.author | default: site.author | escape }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/atlas.css' | relative_url }}">
   {% if site.plugins contains 'jekyll-feed' %}<link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}" title="{{ site.title | escape }}">{% endif %}
   {% if page.mathjax or site.mathjax %}
   <link rel="stylesheet" href="{{ '/assets/katex/katex.min.css' | relative_url }}">
@@ -49,6 +57,19 @@
   {% if site.comments.isso %}<script data-isso="https://{{ site.comments.isso }}" src="https://{{ site.comments.isso }}/js/embed.min.js" async></script>{% endif %}
 </head>
 <body>
+  <div class="atlas-atmosphere" aria-hidden="true">
+    <div class="atlas-atmosphere__grid"></div>
+    <div class="atlas-atmosphere__glow"></div>
+    <svg class="atlas-atmosphere__paths" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <path d="M-80 370 C160 280 225 420 405 350 S670 120 860 245 S1190 360 1530 145"/>
+      <path d="M-80 720 C140 570 220 720 420 575 S690 495 875 610 S1220 500 1520 630"/>
+      <path d="M405 350 Q510 455 420 575 M860 245 Q960 410 875 610"/>
+      <circle cx="405" cy="350" r="4"/><circle cx="420" cy="575" r="4"/><circle cx="860" cy="245" r="4"/><circle cx="875" cy="610" r="4"/><circle cx="1190" cy="300" r="4"/>
+    </svg>
+    <span class="atlas-atmosphere__point atlas-atmosphere__point--one"></span>
+    <span class="atlas-atmosphere__point atlas-atmosphere__point--two"></span>
+    <span class="atlas-atmosphere__point atlas-atmosphere__point--three"></span>
+  </div>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrap">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Christopher, home"><span class="brand-mark" aria-hidden="true">C<span>.</span></span><span class="brand-name">Christopher<span class="brand-sub">/ maker & writer</span></span></a>
@@ -57,7 +78,7 @@
       <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Writing</a>
       <a class="nav-contact" href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" aria-pressed="true"><span class="theme-icon" aria-hidden="true"></span></button>
+    <button type="button" id="scene-toggle" class="scene-toggle" aria-label="Scene: night. Switch to focus." title="Scene: night. Switch to focus."><span class="scene-toggle__mark" aria-hidden="true"><span></span><span></span><span></span></span></button>
   </header>
   <main id="main" class="wrap">{{ content }}</main>
   <footer class="site-footer wrap">
