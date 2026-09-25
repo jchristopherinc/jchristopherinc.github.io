@@ -24,7 +24,7 @@
         if (toggle) {
           const next = order[(order.indexOf(scene) + 1) % order.length];
           toggle.setAttribute('aria-label', `Scene: ${scene}. Switch to ${next}.`);
-          toggle.setAttribute('title', `Scene: ${scene}. Switch to ${next}.`);
+          toggle.querySelector('.scene-toggle__hint').textContent = `${scene} → ${next}`;
         }
       };
       apply();
@@ -78,7 +78,7 @@
       <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Writing</a>
       <a class="nav-contact" href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
-    <button type="button" id="scene-toggle" class="scene-toggle" aria-label="Scene: night. Switch to focus." title="Scene: night. Switch to focus."><span class="scene-toggle__mark" aria-hidden="true"><span></span><span></span><span></span></span></button>
+    <button type="button" id="scene-toggle" class="scene-toggle" aria-label="Scene: night. Switch to focus."><span class="scene-toggle__mark" aria-hidden="true"><span></span><span></span><span></span></span><span class="scene-toggle__hint" aria-hidden="true">night → focus</span></button>
   </header>
   <main id="main" class="wrap">{{ content }}</main>
   <footer class="site-footer wrap">
