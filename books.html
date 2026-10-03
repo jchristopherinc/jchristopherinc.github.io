@@ -1,0 +1,53 @@
+---
+layout: default
+title: Reading statistics
+permalink: /books/
+---
+<link rel="stylesheet" href="{{ '/assets/css/books.css' | relative_url }}">
+<article class="reading" data-books-url="{{ '/assets/data/books.json' | relative_url }}" data-cover-base="{{ '/assets/images/book-covers/' | relative_url }}">
+  <header class="reading-intro">
+    <p class="eyebrow">THE READING LOG / CHRISTOPHER</p>
+    <h1>Between the <em>pages.</em></h1>
+    <p>A little map of the books I’ve finished, the writers I keep returning to, and the years in which I read them.</p>
+    <a class="reading-source" href="https://www.goodreads.com/jchristopherinc">My Goodreads shelf <span aria-hidden="true">↗</span></a>
+  </header>
+  <div id="reading-status" class="reading-status" role="status">Loading the reading log…</div>
+  <div id="reading-content" hidden>
+    <section class="reading-summary" aria-label="Reading at a glance">
+      <div><strong id="stat-books">—</strong><span>books on this shelf</span></div>
+      <div><strong id="stat-authors">—</strong><span>distinct primary authors</span></div>
+      <div><strong id="stat-pages">—</strong><span>recorded pages</span></div>
+      <div><strong id="stat-years">—</strong><span>years with read dates</span></div>
+    </section>
+    <p class="reading-note">A snapshot of my public Goodreads “read” feed, not necessarily my complete reading history. Page totals include only books with a recorded page count; yearly charts include only books with a date read. Unrated books are shown separately.</p>
+
+    <section class="reading-section" aria-labelledby="timeline-title">
+      <div class="reading-heading"><div><p class="eyebrow">01 / THE JOURNEY</p><h2 id="timeline-title">When I read them</h2></div><p>Each dot is a book. Its shade reflects my rating; select a dot for the title and date.</p></div>
+      <div id="reading-timeline" class="reading-timeline" aria-label="Books along a read-date timeline"></div>
+    </section>
+
+    <section class="reading-section" aria-labelledby="year-title">
+      <div class="reading-heading"><div><p class="eyebrow">02 / THE PACE</p><h2 id="year-title">A year at a time</h2></div><p>Books finished and known pages read by calendar year.</p></div>
+      <div class="reading-chart-grid"><div class="reading-chart"><h3>Books read <span>/ year</span></h3><div id="books-by-year"></div></div><div class="reading-chart"><h3>Pages read <span>/ year</span></h3><div id="pages-by-year"></div></div></div>
+    </section>
+
+    <section class="reading-section" aria-labelledby="patterns-title">
+      <div class="reading-heading"><div><p class="eyebrow">03 / THE PATTERNS</p><h2 id="patterns-title">How the shelf stacks up</h2></div><p>Ratings I gave, publication periods, and book lengths where that information is available.</p></div>
+      <div class="reading-chart-grid reading-chart-grid--three"><div class="reading-chart"><h3>My ratings</h3><div id="ratings-chart"></div></div><div class="reading-chart"><h3>First published</h3><div id="published-chart"></div></div><div class="reading-chart"><h3>Book length <span>/ pages</span></h3><div id="length-chart"></div></div></div>
+    </section>
+
+    <section class="reading-section" aria-labelledby="authors-title">
+      <div class="reading-heading"><div><p class="eyebrow">04 / FAMILIAR VOICES</p><h2 id="authors-title">Authors revisited</h2></div><p>The writers with more than one book on this shelf. Counts use the primary author.</p></div>
+      <div id="reading-authors" class="reading-authors"></div>
+    </section>
+
+    <section class="reading-section reading-library" aria-labelledby="library-title">
+      <div class="reading-heading"><div><p class="eyebrow">05 / THE BOOKSHELF</p><h2 id="library-title">Every book</h2></div><p>Browse by my rating, search a title or author, or sort the shelf.</p></div>
+      <div class="reading-controls"><label class="reading-search">Search books <input id="book-search" type="search" placeholder="Title or author…" autocomplete="off"></label><label class="reading-sort">Sort by <select id="book-sort"><option value="rating">My rating, then community rating</option><option value="recent">Recently read</option><option value="title">Title A–Z</option><option value="author">Author A–Z</option></select></label></div>
+      <div id="rating-filters" class="reading-filters" role="group" aria-label="Filter books by my rating"></div>
+      <p id="reading-count" class="reading-count" role="status"></p>
+      <div id="book-grid" class="book-grid"></div>
+    </section>
+  </div>
+</article>
+<script defer src="{{ '/assets/js/books.js' | relative_url }}"></script>

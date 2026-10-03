@@ -76,6 +76,7 @@
     <nav class="site-nav" aria-label="Main navigation">
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>Whoami</a>
       <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' or page.layout == 'post' %} aria-current="page"{% endif %}>Blog</a>
+      <a href="{{ '/books/' | relative_url }}"{% if page.url == '/books/' %} aria-current="page"{% endif %}>Books</a>
       <a class="nav-contact" href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
     <button type="button" id="scene-toggle" class="scene-toggle" aria-label="Scene: night. Switch to focus."><span class="scene-toggle__mark" aria-hidden="true"><span></span><span></span><span></span></span></button>
@@ -83,7 +84,7 @@
   <main id="main" class="wrap">{{ content }}</main>
   <footer class="site-footer wrap">
     <div><span class="footer-mark">C<span>.</span></span><p>Thoughts, experiences, words.</p></div>
-    <nav aria-label="Elsewhere"><a href="{{ '/about/' | relative_url }}">Whoami</a><a href="{{ '/blog/' | relative_url }}">Blog</a><a href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://twitter.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Twitter ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></nav>
+    <nav aria-label="Elsewhere"><a href="{{ '/about/' | relative_url }}">Whoami</a><a href="{{ '/blog/' | relative_url }}">Blog</a><a href="{{ '/books/' | relative_url }}">Books</a><a href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://twitter.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Twitter ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></nav>
     <small>Made with curiosity · Christopher</small>
   </footer>
 </body>
