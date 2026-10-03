@@ -14,6 +14,44 @@
   const byLabel = (a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'});
   const link = (book) => `https://www.goodreads.com/book/show/${encodeURIComponent(book.id)}`;
 
+  // Keep the preview outside the horizontally scrollable chart so it cannot be clipped.
+  const preview = document.createElement('div');
+  preview.id = 'timeline-preview';
+  preview.className = 'timeline-preview';
+  preview.hidden = true;
+  document.body.append(preview);
+  let activeDot = null;
+  function hidePreview() {
+    if (activeDot) activeDot.removeAttribute('aria-describedby');
+    activeDot = null;
+    preview.hidden = true;
+  }
+  function showPreview(dot, book) {
+    if (activeDot && activeDot !== dot) activeDot.removeAttribute('aria-describedby');
+    activeDot = dot;
+    preview.replaceChildren();
+    if (book.cover && /^\/assets\/images\/book-covers\/\d+\.jpg$/.test(book.cover)) {
+      const image = document.createElement('img');
+      image.src = `${root.dataset.coverBase}${book.id}.jpg`;
+      image.alt = ''; image.width = 68; image.height = 100;
+      preview.append(image);
+    }
+    const details = document.createElement('span'); details.className = 'timeline-preview__details';
+    const title = document.createElement('strong'); title.textContent = book.title;
+    const author = document.createElement('span'); author.textContent = book.author;
+    details.append(title, author); preview.append(details);
+    preview.hidden = false;
+    dot.setAttribute('aria-describedby', preview.id);
+    const rect = dot.getBoundingClientRect();
+    const width = preview.getBoundingClientRect().width;
+    const height = preview.getBoundingClientRect().height;
+    preview.style.left = `${Math.max(8, Math.min(rect.left + rect.width / 2 - width / 2, window.innerWidth - width - 8))}px`;
+    preview.style.top = `${rect.top >= height + 12 ? rect.top - height - 8 : rect.bottom + 8}px`;
+  }
+  window.addEventListener('scroll', hidePreview, true);
+  window.addEventListener('resize', hidePreview);
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') hidePreview(); });
+
   function barChart(id, entries, unit = '') {
     const node = $(id);
     node.replaceChildren();
@@ -45,6 +83,7 @@
   }
   function timeline(dated) {
     const node = $('reading-timeline');
+    hidePreview();
     node.replaceChildren();
     if (!dated.length) { node.textContent = 'No read dates have been recorded.'; return; }
     const years = sorted([...new Set(dated.map(year))], (a, b) => a - b);
@@ -60,11 +99,15 @@
         const slot = Math.min(11, Math.max(0, month));
         const used = counts.get(slot) || 0; counts.set(slot, used + 1);
         const dot = document.createElement('a');
-        dot.href = link(book); dot.className = `timeline-dot timeline-dot--${rating(book)}`;
+        dot.href = link(book); dot.target = '_blank'; dot.rel = 'noopener noreferrer';
+        dot.className = `timeline-dot timeline-dot--${rating(book)}`;
         dot.style.left = `calc(${((month + (day - 1) / 31) / 12 * 100).toFixed(2)}% - 5px)`;
         dot.style.top = `${5 + (used % 4) * 13}px`;
-        dot.setAttribute('aria-label', `${book.title}, read ${book.dateRead}, ${rating(book) ? `${rating(book)} out of 5 stars` : 'unrated'}`);
-        dot.title = `${book.title} · ${book.dateRead} · ${rating(book) ? `${rating(book)}★` : 'unrated'}`;
+        dot.setAttribute('aria-label', `${book.title} by ${book.author}, read ${book.dateRead}, ${rating(book) ? `${rating(book)} out of 5 stars` : 'unrated'} (opens in a new tab)`);
+        dot.addEventListener('pointerenter', () => showPreview(dot, book));
+        dot.addEventListener('pointerleave', () => { if (activeDot === dot) hidePreview(); });
+        dot.addEventListener('focus', () => showPreview(dot, book));
+        dot.addEventListener('blur', () => { if (activeDot === dot) hidePreview(); });
         lane.append(dot);
       }
       row.append(label, lane); table.append(row);
@@ -127,15 +170,15 @@
     if (!items.length) { const empty = document.createElement('p'); empty.textContent = 'No books match these filters.'; grid.append(empty); return; }
     for (const book of sorted(items, compare)) {
       const card = document.createElement('article'); card.className = 'book-card';
-      const anchor = document.createElement('a'); anchor.href = link(book); anchor.className = 'book-card__cover';
-      anchor.setAttribute('aria-label', `${book.title} on Goodreads`);
+      const anchor = document.createElement('a'); anchor.href = link(book); anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; anchor.className = 'book-card__cover';
+      anchor.setAttribute('aria-label', `${book.title} on Goodreads (opens in a new tab)`);
       if (book.cover && /^\/assets\/images\/book-covers\/\d+\.jpg$/.test(book.cover)) {
         const image = document.createElement('img'); image.src = `${root.dataset.coverBase}${book.id}.jpg`;
         image.alt = ''; image.loading = 'lazy'; image.width = 160; image.height = 236;
         anchor.append(image);
       } else { const missing = document.createElement('span'); missing.textContent = 'Cover unavailable'; anchor.append(missing); }
       const details = document.createElement('div'); details.className = 'book-card__details';
-      const heading = document.createElement('h3'); const title = document.createElement('a'); title.href = link(book); title.textContent = book.title; heading.append(title);
+      const heading = document.createElement('h3'); const title = document.createElement('a'); title.href = link(book); title.target = '_blank'; title.rel = 'noopener noreferrer'; title.textContent = book.title; title.setAttribute('aria-label', `${book.title} on Goodreads (opens in a new tab)`); heading.append(title);
       const author = document.createElement('p'); author.className = 'book-card__author'; author.textContent = book.author;
       const meta = document.createElement('p'); meta.className = 'book-card__meta';
       meta.textContent = `${rating(book) ? `${rating(book)} ★ my rating` : 'Unrated'} · ${book.pages > 0 ? `${number(book.pages)} pages` : 'Pages unknown'}`;
