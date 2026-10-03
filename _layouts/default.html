@@ -57,6 +57,7 @@
   {% if site.comments.isso %}<script data-isso="https://{{ site.comments.isso }}" src="https://{{ site.comments.isso }}/js/embed.min.js" async></script>{% endif %}
 </head>
 <body>
+  {% unless page.url == '/books/' %}
   <div class="atlas-atmosphere" aria-hidden="true">
     <div class="atlas-atmosphere__grid"></div>
     <div class="atlas-atmosphere__glow"></div>
@@ -70,6 +71,7 @@
     <span class="atlas-atmosphere__point atlas-atmosphere__point--two"></span>
     <span class="atlas-atmosphere__point atlas-atmosphere__point--three"></span>
   </div>
+  {% endunless %}
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrap">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Christopher, home"><span class="brand-mark" aria-hidden="true">C<span>.</span></span><span class="brand-name">Christopher<span class="brand-sub">/ maker & writer</span></span></a>

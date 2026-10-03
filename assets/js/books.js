@@ -139,8 +139,12 @@
       const author = document.createElement('p'); author.className = 'book-card__author'; author.textContent = book.author;
       const meta = document.createElement('p'); meta.className = 'book-card__meta';
       meta.textContent = `${rating(book) ? `${rating(book)} ★ my rating` : 'Unrated'} · ${book.pages > 0 ? `${number(book.pages)} pages` : 'Pages unknown'}`;
-      const date = document.createElement('p'); date.className = 'book-card__date'; date.textContent = validDate(book.dateRead) ? `Read ${book.dateRead}` : 'Read date not recorded';
-      details.append(heading, author, meta, date); card.append(anchor, details); grid.append(card);
+      details.append(heading, author, meta);
+      if (validDate(book.dateRead)) {
+        const date = document.createElement('p'); date.className = 'book-card__date'; date.textContent = `Read ${book.dateRead}`;
+        details.append(date);
+      }
+      card.append(anchor, details); grid.append(card);
     }
   }
   fetch(root.dataset.booksUrl).then((response) => { if (!response.ok) throw new Error('Snapshot unavailable'); return response.json(); })
