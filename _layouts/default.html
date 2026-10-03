@@ -41,6 +41,7 @@
     })();
   </script>
   <title>{% if page.title and page.title != 'Home' %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  {% if page.url == '/404.html' %}<meta name="robots" content="noindex">{% endif %}
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <meta name="author" content="{{ page.author | default: site.author | escape }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -74,7 +75,7 @@
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="Christopher, home"><span class="brand-mark" aria-hidden="true">C<span>.</span></span><span class="brand-name">Christopher<span class="brand-sub">/ maker & writer</span></span></a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>Whoami</a>
-      <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Writing</a>
+      <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' or page.layout == 'post' %} aria-current="page"{% endif %}>Blog</a>
       <a class="nav-contact" href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
     <button type="button" id="scene-toggle" class="scene-toggle" aria-label="Scene: night. Switch to focus."><span class="scene-toggle__mark" aria-hidden="true"><span></span><span></span><span></span></span></button>
@@ -82,7 +83,7 @@
   <main id="main" class="wrap">{{ content }}</main>
   <footer class="site-footer wrap">
     <div><span class="footer-mark">C<span>.</span></span><p>Thoughts, experiences, words.</p></div>
-    <nav aria-label="Elsewhere"><a href="{{ '/about/' | relative_url }}">Whoami</a><a href="{{ '/archive/' | relative_url }}">Writing</a><a href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://twitter.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Twitter ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></nav>
+    <nav aria-label="Elsewhere"><a href="{{ '/about/' | relative_url }}">Whoami</a><a href="{{ '/blog/' | relative_url }}">Blog</a><a href="https://github.com/jchristopherinc" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://twitter.com/jchristopherinc" target="_blank" rel="noopener noreferrer">Twitter ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></nav>
     <small>Made with curiosity · Christopher</small>
   </footer>
 </body>

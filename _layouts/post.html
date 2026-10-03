@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="content-page post-page">
-  <a class="back-link top-back" href="{{ '/archive/' | relative_url }}"><span aria-hidden="true">←</span> All writing</a>
+  <a class="back-link top-back" href="{{ '/blog/' | relative_url }}"><span aria-hidden="true">←</span> Blog</a>
   <header class="post-heading"><p class="eyebrow">FROM THE NOTEBOOK</p><h1>{{ page.title | escape }}<span class="heading-period">.</span></h1><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.date_format }}</time></header>
   <div class="prose">{{ content }}</div>
   {% if site.comments.isso %}<hr><div id="isso-thread"></div>{% endif %}
