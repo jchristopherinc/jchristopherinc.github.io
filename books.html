@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Reading statistics
+title: Books & now
 permalink: /books/
 ---
 <link rel="stylesheet" href="{{ '/assets/css/books.css' | relative_url }}">
@@ -13,6 +13,14 @@ permalink: /books/
   </header>
   <div id="reading-status" class="reading-status" role="status">Loading the reading log…</div>
   <div id="reading-content" hidden>
+    <section class="reading-now" aria-labelledby="reading-now-title">
+      <div>
+        <p class="eyebrow">NOW / IN THE READING LOG</p>
+        <h2 id="reading-now-title">Lately, in <em>books.</em></h2>
+        <p>A small snapshot of what I’ve finished recently. The dates come from my reading log; this isn’t a live “currently reading” list.</p>
+      </div>
+      <div class="reading-now__latest" id="reading-now-latest"></div>
+    </section>
     <section class="reading-summary" aria-label="Reading at a glance">
       <div><strong id="stat-books">—</strong><span>books on this shelf</span></div>
       <div><strong id="stat-authors">—</strong><span>distinct primary authors</span></div>

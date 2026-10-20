@@ -121,6 +121,19 @@
   }
   function stats() {
     const dated = books.filter((b) => year(b) !== null);
+    const latest = sorted(dated, (a, b) => b.dateRead.localeCompare(a.dateRead))[0];
+    const now = $('reading-now-latest');
+    now.replaceChildren();
+    if (latest) {
+      const label = document.createElement('p'); label.className = 'reading-now__label'; label.textContent = 'Most recently logged as read';
+      const title = document.createElement('a'); title.href = link(latest); title.target = '_blank'; title.rel = 'noopener noreferrer';
+      title.textContent = latest.title; title.setAttribute('aria-label', `${latest.title} on Goodreads (opens in a new tab)`);
+      const meta = document.createElement('p'); meta.className = 'reading-now__meta';
+      meta.textContent = `${latest.author} · Finished ${latest.dateRead}`;
+      now.append(label, title, meta);
+    } else {
+      now.textContent = 'No finished dates have been recorded yet.';
+    }
     $('stat-books').textContent = number(books.length);
     $('stat-authors').textContent = number(new Set(books.map((b) => b.author)).size);
     $('stat-pages').textContent = number(books.reduce((sum, b) => sum + (b.pages > 0 ? b.pages : 0), 0));

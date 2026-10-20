@@ -1,0 +1,49 @@
+---
+layout: default
+title: Emergency fund planner
+permalink: /finance/
+---
+<link rel="stylesheet" href="{{ '/assets/css/finance.css' | relative_url }}">
+<article class="fund" aria-labelledby="fund-title">
+  <header class="fund-intro">
+    <p class="eyebrow">A SMALL TOOL / PERSONAL FINANCE</p>
+    <h1 id="fund-title">Emergency fund <em>planner.</em></h1>
+    <p>Set a target in months of essential expenses. See what you’ve covered and what it might take to close the gap—without connecting a bank or sharing your numbers.</p>
+  </header>
+  <noscript><p class="fund-error">This planner needs JavaScript to calculate. Enable it to use the form; no numbers are sent to a server.</p></noscript>
+  <div class="fund-layout">
+    <form id="fund-form" class="fund-form" novalidate>
+      <h2>Your numbers</h2>
+      <p class="fund-hint">Enter amounts in rupees (₹). Count essentials such as housing, groceries, utilities, medicines and required debt payments—not every discretionary expense.</p>
+      <label for="fund-expenses">Monthly essential expenses <span>₹ per month</span></label>
+      <input id="fund-expenses" name="expenses" inputmode="decimal" type="text" autocomplete="off" placeholder="e.g. 35,000" aria-describedby="fund-expenses-help" required>
+      <small id="fund-expenses-help">Use digits, with up to two decimal places; no commas.</small>
+      <label for="fund-savings">Current emergency savings <span>₹</span></label>
+      <input id="fund-savings" name="savings" inputmode="decimal" type="text" autocomplete="off" placeholder="e.g. 50,000" required>
+      <label for="fund-months">Target coverage in months</label>
+      <select id="fund-months" name="months">
+        <option value="3">3 months</option><option value="6" selected>6 months</option><option value="9">9 months</option><option value="12">12 months</option><option value="24">24 months</option>
+      </select>
+      <label for="fund-contribution">Monthly contribution <span>₹ per month, optional</span></label>
+      <input id="fund-contribution" name="contribution" inputmode="decimal" type="text" autocomplete="off" placeholder="e.g. 10,000">
+      <p id="fund-error" class="fund-error" role="alert" hidden></p>
+      <button class="button" type="submit">Calculate my target <span aria-hidden="true">↗</span></button>
+    </form>
+    <section class="fund-results" aria-labelledby="fund-results-title" aria-live="polite" aria-atomic="true">
+      <p class="eyebrow">YOUR PLAN / INR</p>
+      <h2 id="fund-results-title">What the numbers say.</h2>
+      <p id="fund-empty" class="fund-empty">Enter your numbers to see a target and a simple contribution timeline.</p>
+      <div id="fund-figures" hidden>
+        <dl>
+          <div><dt>Emergency fund target</dt><dd id="fund-target"></dd></div>
+          <div><dt>Still to save</dt><dd id="fund-gap"></dd></div>
+          <div><dt>Current coverage</dt><dd id="fund-coverage"></dd></div>
+          <div><dt>At this contribution</dt><dd id="fund-timeline"></dd></div>
+        </dl>
+        <p id="fund-method" class="fund-method"></p>
+      </div>
+    </section>
+  </div>
+  <p class="fund-privacy">Calculated in this browser only. Inputs are not saved, uploaded, or sent to a server. Reloading or leaving this page clears them. This is a planning illustration, not financial or investment advice; it assumes no interest, inflation, or change in expenses.</p>
+</article>
+<script type="module" src="{{ '/assets/finance/main.mjs' | relative_url }}"></script>
