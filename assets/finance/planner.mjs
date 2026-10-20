@@ -18,7 +18,7 @@ export function parseRupees(input) {
 export function calculateFund({ expensesPaise, savingsPaise, months, contributionPaise }) {
   const amounts = [expensesPaise, savingsPaise, contributionPaise];
   if (amounts.some((value) => !Number.isSafeInteger(value) || value < 0 || value > MAX_PAISE)) {
-    throw new RangeError('Each amount must be a nonnegative, supported INR value.');
+    throw new RangeError('Each amount must be a nonnegative, supported ₹ value.');
   }
   if (expensesPaise === 0) throw new RangeError('Enter monthly essential expenses greater than zero.');
   if (!Number.isInteger(months) || months < 1 || months > 24) {

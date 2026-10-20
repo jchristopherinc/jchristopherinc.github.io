@@ -56,8 +56,8 @@
   {% if site.comments.disqus %}<script src="https://{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
   {% if site.comments.isso %}<script data-isso="https://{{ site.comments.isso }}" src="https://{{ site.comments.isso }}/js/embed.min.js" async></script>{% endif %}
 </head>
-<body>
-  {% unless page.url == '/books/' %}
+<body{% if page.url == '/tools/' or page.url == '/finance/' %} class="tool-surface"{% endif %}>
+  {% unless page.url == '/books/' or page.url == '/tools/' or page.url == '/finance/' %}
   <div class="atlas-atmosphere" aria-hidden="true">
     <div class="atlas-atmosphere__grid"></div>
     <div class="atlas-atmosphere__glow"></div>
